@@ -7,26 +7,28 @@ import argparse
 import imutils
 import cv2
 
-
 def midpoint(ptA, ptB):
 	return ((ptA[0] + ptB[0]) * 0.5, (ptA[1] + ptB[1]) * 0.5)
 
+def max_dim(image):
 
-def max_dim():
-
+	### FOR TESTING ###
 
 	# construct the argument parse and parse the arguments
-	ap = argparse.ArgumentParser()
-	ap.add_argument("-i", "--image", required=True,
-					help="path to the input image")
+	# ap = argparse.ArgumentParser()
+	# ap.add_argument("-i", "--image", required=True,
+	# 				help="path to the input image")
+
+	# args = vars(ap.parse_args())
+	# image = cv2.imread(args["image"])
+
+	# image = cv2.imread(image)
+	# print("this is my image",image)
 
 	width = 5.8
-
-	args = vars(ap.parse_args())
-	image = cv2.imread(args["image"])
+	image = np.asarray(image)
 	gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 	gray = cv2.GaussianBlur(gray, (7, 7), 0)
-
 
 	# perform edge detection, then perform a dilation + erosion to
 	# close gaps in between object edges
@@ -126,7 +128,9 @@ def max_dim():
 					(int(trbrX + 10), int(trbrY)), cv2.FONT_HERSHEY_SIMPLEX,
 					0.65, (255, 255, 255), 2)
 
+		### FOR TESTING ###
 		# show the output image
-		cv2.imshow("Image", orig)
-		cv2.waitKey(0)
+		# cv2.imshow("Image", orig)
+		# cv2.waitKey(0)
+
 	return max_dim_tup
