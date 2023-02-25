@@ -5,3 +5,4 @@ Pillow==9.3.0
 rembg==2.0.30
 scipy==1.9.3
 streamlit==1.16.0
+libgl1-mesa-glx
