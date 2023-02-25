@@ -11,6 +11,7 @@ from model import *
 st.title("NinjaLens | CodeDojo '23")
 st.caption("Done by: Kwang Yang, Marcus, Anders, Sourick")
 st.write("Integrating computer vision to ensure accurate parcel sizing inputs from the seller's end to increase efficacy through the seller-to-warehouse process segment, omitting the 'rejection pile' of packages, as well as disputes between sellers and NinjaVan")
+st.subheader("Kindly upload 2 pictures of your parcel (top view and side view) beside a bottle of water for the highest accuracy")
 
 # def add_bg_from_url():
 #     st.markdown(
@@ -97,7 +98,7 @@ def get_image():
             res.extend(max_dim(image))
 
         total = calculate(res)
-        
+
         if total:
             total = total * 1.15
             st.metric("Total dimension:", round(total,3))
