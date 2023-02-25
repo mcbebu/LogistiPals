@@ -25,7 +25,7 @@ def max_dim(image):
 	# image = cv2.imread(image)
 	# print("this is my image",image)
 
-	width = 5.8
+	width = 8
 	image = np.asarray(image)
 	gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 	gray = cv2.GaussianBlur(gray, (7, 7), 0)
