@@ -1,3 +1,7 @@
-imutils
-pathlib
-rembg
+imutils==0.5.4
+numpy==1.23.3
+opencv_python==4.6.0.66
+Pillow==9.4.0
+rembg==2.0.30
+scipy==1.10.1
+streamlit==1.16.0
