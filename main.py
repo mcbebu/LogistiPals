@@ -45,10 +45,8 @@ def add_bg_from_local(image_file):
 add_bg_from_local('ninjavanbg.png')
 
 def calculate(dims):
-
     closest_pair = None
     closest_distance = float('inf')
-
     for i in range(len(dims)):
         for j in range(i+1, len(dims)):
             distance = abs(dims[i] - dims[j])
@@ -56,13 +54,15 @@ def calculate(dims):
                 closest_distance = distance
                 closest_pair = (dims[i], dims[j])
 
-    avg = sum(closest_pair)/2
-    dims.remove(closest_pair[0])
-    dims.remove(closest_pair[1])
-    breakdown = st.checkbox('Show breakdown')
-    if breakdown:
-        st.write(avg, dims[0], dims[1])
-    return avg + sum(dims)
+    if closest_pair:
+        avg = sum(closest_pair)/2
+        dims.remove(closest_pair[0])
+        dims.remove(closest_pair[1])
+        breakdown = st.checkbox('Show breakdown')
+        if breakdown:
+            st.write(avg, dims[0], dims[1])
+        return avg + sum(dims)
+    
 
 def metrics(total):
 
@@ -73,8 +73,9 @@ def metrics(total):
     - Large (<20kg/200cm)
     - Extra large (<30kg/300cm)
     '''
-
-    if total <= 80:
+    if total == 0:
+        return "No input detected"
+    elif total <= 80:
         return "Your parcel size is small (<4kg/80cm)!"
     elif total <= 120:
         return "Your parcel size is medium (<10kg/120cm)!!"
@@ -95,9 +96,12 @@ def get_image():
             st.image(image, caption="Uploaded Image", use_column_width=True)
             res.extend(max_dim(image))
 
-        total = calculate(res)*1.15
-        st.metric("Total dimension:", round(total,3))
-        st.metric("Recomendation:", metrics(total))
-        st.caption("*You will incur additional charges in the event that you underdeclare the size of your parcel")
+        total = calculate(res)
+        
+        if total:
+            total = total * 1.15
+            st.metric("Total dimension:", round(total,3))
+            st.metric("Recomendation:", metrics(total))
+            st.caption("*You will incur additional charges in the event that you underdeclare the size of your parcel")
 
 get_image()
