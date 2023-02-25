@@ -10,6 +10,7 @@
 1. Users have to submit 2 pictures of their parcel (top view and side view) beside a bottle of water (reference object) into NinjaLens 
 2. NinjaLens will evaluate the sum of sides and return the recommended size of parcel based on the metrics
 
+Try out NinjaLens here -> https://marcussyeo-logistipals-main-vy9cvn.streamlit.app/
 
 ![Screenshot 2023-02-26 at 4 28 26 AM](https://user-images.githubusercontent.com/66177132/221378245-325c781a-ff7e-4915-a4da-f80bce98fd5b.png)
 
