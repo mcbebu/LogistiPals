@@ -21,6 +21,6 @@ Try out NinjaLens here -> https://marcussyeo-logistipals-main-vy9cvn.streamlit.a
 
 Done by:
 1. Marcus Yeo - Year 1 NUS Data Science & Analytics
-2. Kwang Yang - Year 1 NUS Data Science & Analytics
+2. Kwang Yang Chia - Year 1 NUS Data Science & Analytics
 3. Anders Ooi - Year 1 NUS Business Analytics
 4. Sourick Paul - Year 1 NUS Business Analytics
